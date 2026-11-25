@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-in">
+    <div>
+      <h1>Token Launch Radar</h1>
+      <p class="tagline">Protocols that record no token yet, ranked by what a token would be worth if their record stayed as it is — and how to farm each one before it launches.</p>
+    </div>
+    <div class="stamp" id="stamp">Loading the snapshot…</div>
+  </div>
+</header>
+
+<section class="model panel">
+  <h2>How the ranking is derived</h2>
+  <p class="formula">implied value = TVL &times; category multiple &times; momentum &times; maturity</p>
+  <ul class="model-points">
+    <li><strong>Category multiple</strong> — the median market-cap / TVL ratio of this snapshot's own tokenized protocols in the same category (ratios clipped to 0.02–10). A category with fewer than 3 tokenized samples falls back to its family median, then to the global median. Nothing is priced from a list of names: change the snapshot and every multiple moves.</li>
+    <li><strong>Momentum</strong> — the protocol's 7-day TVL change, clamped to −30%…+40%, scaled by 0.006: a factor of 0.82–1.24. Unreported change counts as neutral.</li>
+    <li><strong>Maturity</strong> — 0.85 at listing, rising to 1.20 at four years tracked with no token: the longer a protocol has run tokenless, the more its record is worth.</li>
+    <li><strong>Coverage</strong> — every protocol on the snapshot's watchlist is ranked, plus every other pre-token protocol that is not a wrapped, staked or bridged product of one whose token already trades. Protocols whose token already trades are kept apart, in the comparison table at the foot of the page, with their real market caps.</li>
+  </ul>
+</section>
+
+<main id="app" aria-busy="true">
+  <p class="loading">Reading the board…</p>
+</main>
+
+<footer class="foot">
+  <p>Implied values are this radar's own model output from the sealed snapshot's figures, not a prediction that any protocol will issue a token. Farm plans carry the costs and durations stated; nothing here is financial advice.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
